@@ -3,6 +3,29 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchProducts } from '../actions/index';
 import { Link } from 'react-router';
+import './styles.css';
+import ShipCards from '../components/ship_list_items';
+
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {GridList, GridTile} from 'material-ui/GridList';
+import FlatButton from 'material-ui/FlatButton';
+import Subheader from 'material-ui/Subheader';
+
+import { Grid, Row, Col } from 'react-flexbox-grid';
+
+
+const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  gridList: {
+    width: 500,
+    height: 450,
+    overflowY: 'auto',
+  },
+};
 
 // main component for homepage of ships
 class ShipList extends Component {
@@ -13,19 +36,9 @@ class ShipList extends Component {
   renderProducts() {
     return this.props.products.map((product) => {
       return (
-        <div>
-          <li key={product.id}>
-            <Link to={"ship/" + product.id}>
-              <ul>{product.name}</ul>
-              <ul>{product.manufacturer}</ul>
-              <ul>{product.price}</ul>
-              <ul>{product.class}</ul>
-              <ul>{product.id}</ul>
-            </Link>
-          </li>
-          <br/>
-          <br/>
-        </div>
+        <Col md={4} xs={12} sm={6}>
+           <ShipCards id={product.id} name={product.name} manufacturer={product.manufacturer} price={product.price} />
+        </Col>
       )
     })
   }
@@ -33,10 +46,11 @@ class ShipList extends Component {
   render() {
     return (
       <div>
-        <h1>Product List</h1>
-        <ul>
-          {this.renderProducts()}
-        </ul>
+        <Grid className="Grid-thing" fluid={true}>
+          <Row className="parent">
+            {this.renderProducts()}
+          </Row>
+        </Grid>
       </div>
     );
   }
