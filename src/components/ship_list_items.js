@@ -7,18 +7,44 @@ import FlatButton from 'material-ui/FlatButton';
 import Subheader from 'material-ui/Subheader';
 import './style.css';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import image from '.././images/tie_fighter.png';
+// import image2 from '.././images/X-wing.png';
 
+export default class ShipCards extends Component {
 
-export default function ShipCards(props) {
-  return (
-    <Card key={props.id} className="Card-item">
-      <Link to={"ship/" + props.id}>
-      <FlatButton label="More Info" primary={true} />
-      </Link>
+    constructor(props) {
+      super(props);
+      this.state = {
+        expanded: false
+      };
+    }
 
-      <CardTitle title={props.name} />
-      <CardText>Ship Manufacturer: {props.manufacturer}</CardText>
-      {props.price && <CardText>Ship Price: {props.price}</CardText>}
-    </Card>
-  )
+    handleExpandChange = (expanded) => {
+      this.setState({expanded: expanded});
+    };
+
+    render(){
+      return (
+        <Card key={this.props.id} className="Card-item" expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+        <CardMedia
+          className="ship-image" >
+          <img src={this.props.image} alt="Ship" />
+        </CardMedia>
+            <CardActions>
+              <FlatButton
+                label="More Info"
+                containerElement={<Link to={"ship/" + this.props.id} />}
+                />
+            </CardActions>
+            <CardTitle title={this.props.name}
+              subtitle={this.props.class}
+              actAsExpander={true}
+              showExpandableButton={true} />
+            <CardText expandable={true}>
+              {this.props.price} <br/>
+              {this.props.manufacturer}
+            </CardText>
+        </Card>
+      )
+  }
 }

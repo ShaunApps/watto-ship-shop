@@ -7,21 +7,41 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import FlatButton from 'material-ui/FlatButton';
 import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
+import {List, ListItem} from 'material-ui/List';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import CircularProgress from 'material-ui/CircularProgress';
+import image from '.././images/tie_fighter.png';
 
-import image from '.././tie_fighter.png';
+import './style.css';
 
 
-const style = {
-  height: 525,
-  width: 525,
-  margin: 25,
-  marginLeft: 30,
-  padding: 12,
-  textAlign: 'right',
-  display: 'inline-block',
+import SpecsShips from './specs-ship';
+
+const cardStyle = {
+  margin: 'auto'
 };
+
+const cardMediaStyle = {
+  height: 'auto',
+  width: 'auto'
+};
+
+const listStyle = {
+  width: 'auto',
+  height: 'auto',
+  // margin: 28,
+  marginLeft: 30,
+  // padding: 12,
+  textAlign: 'right'
+};
+
+const purchaseButton = {
+  marginLeft: 1050,
+  marginRight: -15
+};
+
 
 class ShipShow extends Component {
   componentWillMount() {
@@ -31,43 +51,49 @@ class ShipShow extends Component {
   render(){
     const { ship } = this.props;
     if (!ship) {
-      return <div>Loading...</div>;
-    }
+      return (
+          <div>
+            <div className="waiting-div">
+              <CircularProgress className="waiting-circle" size={100} thickness={5} />
+            </div>
+          </div>
+          )
+     }
     return (
       <div>
-        <Grid fluid={true}>
-        <Row>
-          <Col xs={12} sm={12} md={6} lg={6}>
-            <Card className="Card-show">
-              <CardMedia
-                overlay={<CardTitle title={ship.name} />}
-                className="ship-image" >
-                <img src={image} alt="Ship" />
-              </CardMedia>
-              <CardText>
-                This {ship.name} was manufactured by {ship.manufacturer},
-                so you know you can't go wrong when it comes to piloting a {ship.class}.
-              </CardText>
-            </Card>
-          </Col>
-
-          <Col xs={12} sm={12} md={4} lg={4}>
-            <Paper style={style} zDepth={3}>
-              <h3>Tech Specs</h3>
-              <p>{ship.techspecs.length}</p>
-              <p>{ship.techspecs.maxaccel}</p>
-              <p>{ship.techspecs.MGLT}</p>
-              <p>{ship.techspecs.maxatmosphericspeed}</p>
-              <p>{ship.techspecs.shielding}</p>
-              <p>{ship.techspecs.hull}</p>
-              <p>{ship.techspecs.sensor}</p>
-              <p>{ship.techspecs.targeting}</p>
-              <p>{ship.techspecs.armament}</p>
-              <p>{ship.techspecs.communications}</p>
-            </Paper>
-          </Col>
-          </Row>
-        </Grid>
+          <div className="flex-container-thing">
+            <div className="left-side-item">
+              Sidenav
+            </div>
+            <div className="card-style-div">
+              <Card style={cardStyle}>
+                <CardMedia
+                  style={cardMediaStyle}
+                  overlay={<CardTitle title={ship.name} />}
+                   >
+                  <img src={image} alt="Ship" />
+                </CardMedia>
+                <CardText>
+                  <p>The {ship.name} was built by {ship.manufacturer}, a top manufacturer of {ship.class}
+                   -class ships.
+                   </p>
+                  {ship.class == "Starfighter" && // only render speed info if ship is a starfigher 
+                  <p>
+                   It has top speeds of {ship.techspecs.MGLT} per hour (space) and {ship.techspecs.maxatmosphericspeed} (atomosphere),
+                   with a max acceleration of {ship.techspecs.maxaccel}'s.
+                  </p> }
+                </CardText>
+              </Card>
+            </div>
+              <div className="list-style-div">
+                <SpecsShips ship={ship} />
+              </div>
+          </div>
+          <div className="flex-container-bottom">
+            <div className="flex-button-div">
+              <RaisedButton style={purchaseButton} label="Purchase" primary={true}  />
+            </div>
+          </div>
       </div>
     )
   }
