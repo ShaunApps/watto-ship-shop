@@ -2,11 +2,12 @@
   margin: auto;
   margin-bottom: 10px;
   margin-top: 10px;
+  display: flex;
 }
 
 
 .ship-image {
-  height: auto;
+  height: 200px;
   width: auto;
   flex: 1;
 }
@@ -21,30 +22,11 @@
    }
 
 
-.flex-container-thing {
-  max-width: 1200px;
-  margin: 100px auto 20px auto;
-  display: flex;
-}
-
-.flex-container-bottom {
-  max-width: 1200px;
-  margin: 10px auto 30px auto;
-  display: flex;
-}
-
-.flex-button-div {
-  float: right;
-}
-
-.purchase-button {
-
-}
 
 .card-style-div {
-  margin-top: 30px;
+  /*margin-top: 30px;
   flex: 3;
-  align-self: flex-end;
+  align-self: flex-end;*/
 }
 
 .left-side-item {
@@ -53,11 +35,7 @@
   flex: 1;
 }
 
-.list-style-div {
-  padding: 20px;
-  margin-top: 40px;
-  flex: 2;
-}
+
 
 .list-style-list {
   margin: 28px;
@@ -77,4 +55,17 @@
 .waiting-circle {
   max-width: 50%;
 
+}
+
+.footer-paper-div {
+  margin-left: 500px;
+  text-align: right;
+}
+
+
+.footer-main {
+  display: flex;
+  background-color: #FFF9C4;
+  margin-top: 300px;
+  z-index: 0;
 }

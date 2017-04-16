@@ -1,5 +1,8 @@
 .App {
   font-family: 'Roboto', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -16,6 +19,15 @@
 
 .App-intro {
   font-size: large;
+}
+
+#div-drawer {
+  z-index: 5;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1300px) {
+  #div-drawer { display: none; }
+
 }
 
 @keyframes App-logo-spin {

@@ -15,16 +15,22 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import image1 from '.././images/tie_fighter.png';
 import image2 from '.././images/X-wing.png';
+import image3 from '.././images/Y-Wing.png';
+import image4 from '.././images/YT-1300_Light_Freighter.png';
+import image5 from '.././images/starwing.png';
+import image6 from '.././images/Imperial_Shuttle.png';
+import image7 from '.././images/A-wing.png';
+import image8 from '.././images/B-Wing-icon.png';
 
 export const IMAGE_MAP = [
   image1,
   image2,
-  image1,
-  image2,
-  image1,
-  image2,
-  image1,
-  image2
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
+  image8
 ];
 
 
@@ -63,20 +69,17 @@ class ShipList extends Component {
   render() {
     return (
       <div className="home-page-container-div">
-        <Row>
-          <Col xs={12} sm={12} md={2} lg={2}>
-            Sidespace
-          </Col>
-          <Col xs={12} sm={12} md={8} lg={8}>
+        <div className="flex-container-thing">
+          <div className="side-bar-container">
+          </div>
+          <div className="center-container-main">
             <Grid className="Grid-thing" fluid={true}>
               <Row className="parent">
                 {this.renderProducts()}
               </Row>
             </Grid>
-          </Col>
-            <Col xs={12} sm={12} md={2} lg={2}>
-            </Col>
-          </Row>
+          </div>
+        </div>
       </div>
     );
   }
