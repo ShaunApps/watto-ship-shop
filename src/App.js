@@ -37,10 +37,10 @@ const AppStyle = {
   },
 
   titleBar: {
-    marginLeft: 200
+    textAlign: 'center'
   },
 
-  bottomBar: {
+  sideBar: {
     backgroundColor: {yellow200},
     zIndex: 1200,
     top: 0,
@@ -63,12 +63,11 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="App">
           <AppBar title="Watto's Spaceship Emporium"
-                  iconElementRight={<IconButton iconClassName="muidocs-icon-custom-github" />}
                   style={AppStyle.appBar}
                   titleStyle={AppStyle.titleBar}
                   />
           <div id="div-drawer">
-            <Drawer containerStyle={AppStyle.bottomBar} >
+            <Drawer containerStyle={AppStyle.sideBar} >
               <Divider />
                 <MenuItem
                   href="https://github.com/ShaunApps/watto-ship-shop"

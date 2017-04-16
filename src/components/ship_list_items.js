@@ -10,39 +10,23 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import image from '.././images/tie_fighter.png';
 // import image2 from '.././images/X-wing.png';
 import Divider from 'material-ui/Divider';
-
-
-
-
-const cardStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center'
-};
+import RaisedButton from 'material-ui/RaisedButton';
+import ActionAndroid from 'material-ui/svg-icons/action/code';
 
 const cardMediaStyle = {
   height: 300,
   width: 288,
-  display: 'flex',
   flexGrow: 1,
   flexShrink: 1,
   flexBasis: "auto",
-  // marginLeft: 30,
-  // marginTop: 30,
+  marginLeft: 30,
+  marginTop: 30,
   verticalAlign: 'middle',
   alignItems: 'center'
 
 };
 
-// const cardMediaStyle = {
-//   height: 300,
-//   width: 400,
-//   margin: 'auto',
-//   flex: 2,
-//   display: 'flex',
-//   alignItems: 'center',
-//   justifyContent: 'center'
-// };
+
 
 export default class ShipCards extends Component {
 
@@ -60,7 +44,7 @@ export default class ShipCards extends Component {
 
     render(){
       return (
-        <Card key={this.props.id} style={cardStyle} expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+        <Card key={this.props.id} className="Card-item" expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
           <CardMedia
             mediaStyle={cardMediaStyle} >
             <img src={this.props.image} style="ship-image" alt="Ship" />
@@ -72,10 +56,13 @@ export default class ShipCards extends Component {
               actAsExpander={true}
               showExpandableButton={true} />
             <CardActions>
-              <FlatButton
-                label="More Info"
-                containerElement={<Link to={"ship/" + this.props.id} />}
-                />
+            <RaisedButton
+              label="Details"
+              labelPosition="before"
+              primary={true}
+              icon={<ActionAndroid />}
+              containerElement={<Link to={"ship/" + this.props.id} />} />
+
             </CardActions>
             <CardText expandable={true}>
               {this.props.price} <br/>

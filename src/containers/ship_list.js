@@ -59,7 +59,7 @@ class ShipList extends Component {
     return this.props.products.map((product) => {
       let image = IMAGE_MAP[product.id - 1];
       return (
-        <Col md={4} xs={12} sm={6}>
+        <Col md={6} xs={12} sm={6} lg={4}>
            <ShipCards id={product.id} name={product.name} manufacturer={product.manufacturer} price={product.price} image={image} />
         </Col>
       )
@@ -69,18 +69,22 @@ class ShipList extends Component {
   render() {
     return (
       <div className="home-page-container-div">
-        <div className="flex-container-thing">
-          <div className="side-bar-container">
-          </div>
-          <div className="center-container-main">
+        <Row>
+          <Col xs={12} sm={12} md={2} lg={2}>
+          </Col>
+          <Col xs={12} sm={12} md={10} lg={10}>
             <Grid className="Grid-thing" fluid={true}>
               <Row className="parent">
                 {this.renderProducts()}
               </Row>
             </Grid>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </div>
+
+
+
+
     );
   }
 }
