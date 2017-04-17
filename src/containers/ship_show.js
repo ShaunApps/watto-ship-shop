@@ -67,6 +67,7 @@ const purchaseButton = {
   color: grey50
 };
 
+// *****----Main Component for presenting an individual ship----*********
 
 class ShipShow extends Component {
   componentWillMount() {

@@ -8,7 +8,7 @@ import Subheader from 'material-ui/Subheader';
 import './style.css';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import image from '.././images/tie_fighter.png';
-// import image2 from '.././images/X-wing.png';
+
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
 import ActionAndroid from 'material-ui/svg-icons/action/code';
@@ -34,7 +34,7 @@ export default class ShipCards extends Component {
         expanded: false
       };
     }
-
+    // handle card expansion of text, used to change state of card
     handleExpandChange = (expanded) => {
       this.setState({expanded: expanded});
 

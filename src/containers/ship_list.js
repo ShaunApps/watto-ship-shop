@@ -31,7 +31,8 @@ const styles = {
 
 
 
-// main component for homepage of ships
+// *****----Main Component for presenting a list of ships----*********
+
 class ShipList extends Component {
   componentWillMount() {
     this.props.fetchProducts();
