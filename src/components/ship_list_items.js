@@ -50,7 +50,6 @@ export default class ShipCards extends Component {
             <img src={this.props.image} style="ship-image" alt="Ship" />
           </CardMedia>
           <Divider />
-
             <CardHeader title={this.props.name}
               subtitle={this.props.class}
               actAsExpander={true}
@@ -65,8 +64,8 @@ export default class ShipCards extends Component {
 
             </CardActions>
             <CardText expandable={true}>
-              {this.props.price} <br/>
-              {this.props.manufacturer}
+              Manufacturer: {this.props.manufacturer}
+              {this.props.price && <p>Price: {this.props.price}</p>}
             </CardText>
         </Card>
       )

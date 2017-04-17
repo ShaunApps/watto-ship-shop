@@ -7,7 +7,6 @@ import './styles.css';
 import ShipCards from '../components/ship_list_items';
 
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import {GridList, GridTile} from 'material-ui/GridList';
 import FlatButton from 'material-ui/FlatButton';
 import Subheader from 'material-ui/Subheader';
 
@@ -73,6 +72,9 @@ class ShipList extends Component {
           <Col xs={12} sm={12} md={2} lg={2}>
           </Col>
           <Col xs={12} sm={12} md={10} lg={10}>
+            <Row center="xs" >
+              <h2 classname="home-page-header">Ships for Sale</h2>
+            </Row>
             <Grid className="Grid-thing" fluid={true}>
               <Row className="parent">
                 {this.renderProducts()}
@@ -81,10 +83,6 @@ class ShipList extends Component {
           </Col>
         </Row>
       </div>
-
-
-
-
     );
   }
 }

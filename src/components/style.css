@@ -12,6 +12,12 @@
   flex: 1;
 }
 
+@media (min-width: 500px) {
+  .ship-image{
+    margin-left: 40px;
+  }
+}
+
 
 .paper-card-info {
    height: 100;
@@ -58,8 +64,9 @@
 }
 
 .footer-paper-div {
-  margin-left: 500px;
-  text-align: right;
+  margin-top: 20px;
+  margin-left: 400px;
+  flex: 1;
 }
 
 

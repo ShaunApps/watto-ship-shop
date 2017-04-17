@@ -9,9 +9,17 @@ import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
 import {List, ListItem} from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Tabs, Tab} from 'material-ui/Tabs';
 
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import CircularProgress from 'material-ui/CircularProgress';
+
+import PolymerIcon from "material-ui/svg-icons/action/polymer";
+import ToysIcon from "material-ui/svg-icons/hardware/toys";
+import FlareIcon from "material-ui/svg-icons/image/flare";
+import DollarSign from "material-ui/svg-icons/editor/attach-money";
+
+import {grey50} from 'material-ui/styles/colors';
 
 import SpecsShips from '.././components/specs-ship';
 
@@ -23,6 +31,9 @@ import image5 from '.././images/starwing.png';
 import image6 from '.././images/Imperial_Shuttle.png';
 import image7 from '.././images/A-wing.png';
 import image8 from '.././images/B-Wing-icon.png';
+
+import battleImage from '.././images/space_battle.png';
+import battleImage2 from '.././images/battle2.png';
 
 const IMAGE_MAP = [
   image1,
@@ -47,7 +58,8 @@ const cardStyle = {
     width: 'auto',
     height: 'auto',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    marginBottom: 20
   },
 
   title: {
@@ -76,8 +88,7 @@ const smallCardStyle = {
   boxSizing: 'border-box'
 }
 const purchaseButton = {
-  // marginLeft: 1050,
-  // marginRight: -15
+  color: grey50
 };
 
 
@@ -103,15 +114,32 @@ class ShipShow extends Component {
           <div className="flex-container-thing">
             <div className="side-bar-container">
             </div>
-
             <div className="left-side-container">
               <div className="card-style-div">
                 <Card style={cardStyle.main}>
-                  <CardMedia
-                    style={cardMediaStyle}
-                     >
-                    <img src={image} alt="Ship" />
-                  </CardMedia>
+                  <Tabs>
+                    <Tab label={ <PolymerIcon color={grey50} /> }>
+                      <CardMedia
+                        style={cardMediaStyle}
+                         >
+                        <img src={image} alt="Ship" />
+                      </CardMedia>
+                    </Tab>
+                    <Tab label={ <ToysIcon color={grey50} /> }>
+                      <CardMedia
+                        style={cardMediaStyle}
+                         >
+                        <img src={battleImage} alt="Ship" />
+                      </CardMedia>
+                    </Tab>
+                    <Tab label={ <FlareIcon color={grey50} /> }>
+                      <CardMedia
+                        style={cardMediaStyle}
+                         >
+                        <img src={battleImage2} alt="Ship" />
+                      </CardMedia>
+                    </Tab>
+                  </Tabs>
                   <CardTitle title={ship.name} style={cardStyle.title} />
                   <CardText style={cardStyle.text}>
                     <p>The {ship.name} was built by {ship.manufacturer}, a top manufacturer of {ship.class}
@@ -154,7 +182,11 @@ class ShipShow extends Component {
               </div>
 
               <div className="button-style-div">
-                <RaisedButton style={purchaseButton} label="Purchase" primary={true}  />
+                <RaisedButton
+                  buttonStyle={purchaseButton}
+                  label="Purchase"
+                  icon={<DollarSign />}
+                  primary={true}  />
               </div>
             </div>
 
