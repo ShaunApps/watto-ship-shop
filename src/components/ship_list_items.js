@@ -26,8 +26,6 @@ const cardMediaStyle = {
 
 };
 
-
-
 export default class ShipCards extends Component {
 
     constructor(props) {
@@ -61,7 +59,6 @@ export default class ShipCards extends Component {
               primary={true}
               icon={<ActionAndroid />}
               containerElement={<Link to={"ship/" + this.props.id} />} />
-
             </CardActions>
             <CardText expandable={true}>
               Manufacturer: {this.props.manufacturer}

@@ -19,7 +19,7 @@ import Toggle from 'material-ui/Toggle';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
-import {yellow200} from 'material-ui/styles/colors';
+import {yellow200, grey50} from 'material-ui/styles/colors';
 
 import watto from './images/Watto2.png';
 const tapInitOnce = _.once(() => injectTapEventPlugin());
@@ -32,7 +32,8 @@ const AppStyle = {
     right: 0
   },
   titleBar: {
-    textAlign: 'center'
+    textAlign: 'center',
+    color: grey50
   },
   sideBar: {
     bottom: 0
@@ -50,8 +51,6 @@ const AppStyle = {
     padding: 16,
   }
 };
-
-// muiTheme={getMuiTheme(darkBaseTheme)}
 
 class App extends Component {
   constructor(props) {
@@ -79,7 +78,6 @@ class App extends Component {
                   iconElementRight={<Toggle
                                       labelPosition="right"
                                       onToggle={this.handleToggle}
-
                                     />}
                   iconElementLeft={<IconButton
                                     iconStyle={AppStyle.homeIcon}

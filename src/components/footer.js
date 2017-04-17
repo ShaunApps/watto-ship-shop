@@ -1,34 +1,27 @@
 import React, { Component } from 'react';
 import './style.css';
 import Paper from 'material-ui/Paper';
-import {yellow100} from 'material-ui/styles/colors';
+import {grey900, grey300} from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
 
 const footerStyle = {
   bar: {
     display: 'flex',
-    backgroundColor: yellow100,
+    backgroundColor: grey900,
     marginTop: 300,
     zIndex: 0,
-    height: 100,
+    height: 150,
     right: 0,
     bottom: 0
   },
   titleBar: {
-    textAlign: 'center'
+    textAlign: 'center',
+    color: grey300,
+    fontSize: 20
   }
 
 }
 
-// export default function Footer(){
-//   return (
-//     <Paper style={footerStyle} zDepth={0} >
-//       <div className="footer-paper-div" >
-//         © 2017 Shaun Appelbaum
-//       </div>
-//     </Paper>
-//   )
-// }
 
 export default function Footer(){
   return (

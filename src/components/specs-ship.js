@@ -14,9 +14,7 @@ import {grey50} from 'material-ui/styles/colors';
 const listStyle = {
   width: 'auto',
   height: 'auto',
-  // margin: 28,
   marginLeft: 30,
-  // padding: 12,
   textAlign: 'right'
 };
 

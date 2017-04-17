@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProduct } from '../actions/index';
 
+import './styles.css';
+
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import {GridList, GridTile} from 'material-ui/GridList';
 import FlatButton from 'material-ui/FlatButton';
@@ -23,34 +25,12 @@ import {grey50} from 'material-ui/styles/colors';
 
 import SpecsShips from '.././components/specs-ship';
 
-import image1 from '.././images/tie_fighter.png';
-import image2 from '.././images/X-wing.png';
-import image3 from '.././images/Y-Wing.png';
-import image4 from '.././images/YT-1300_Light_Freighter.png';
-import image5 from '.././images/starwing.png';
-import image6 from '.././images/Imperial_Shuttle.png';
-import image7 from '.././images/A-wing.png';
-import image8 from '.././images/B-Wing-icon.png';
+import {IMAGE_MAP} from '.././utils/image_helper';
 
 import battleImage from '.././images/space_battle.png';
 import battleImage2 from '.././images/battle2.png';
 
-const IMAGE_MAP = [
-  image1,
-  image2,
-  image3,
-  image4,
-  image5,
-  image6,
-  image7,
-  image8
-];
-
-
-import './styles.css';
-
-
-
+const IMAGES = IMAGE_MAP.images;
 
 const cardStyle = {
   main: {
@@ -61,16 +41,12 @@ const cardStyle = {
     flexDirection: 'column',
     marginBottom: 20
   },
-
   title: {
     flex: 1
   },
-
   text: {
     flex: 1
   }
-
-
 };
 
 const cardMediaStyle = {
@@ -99,7 +75,7 @@ class ShipShow extends Component {
 
   render(){
     const { ship } = this.props;
-    let image = IMAGE_MAP[this.props.params.id - 1];
+    let image = IMAGES[this.props.params.id - 1];
     if (!ship) {
       return (
           <div>
@@ -150,6 +126,10 @@ class ShipShow extends Component {
                      It has top speeds of {ship.techspecs.MGLT} per hour (space) and {ship.techspecs.maxatmosphericspeed} (atomosphere),
                      with a max acceleration of {ship.techspecs.maxaccel}'s.
                     </p> }
+                    {ship.class != "Starfighter" && // only render speed info if ship is a starfigher
+                    <p>
+                     This is a reliable ship made of a {ship.techspecs.hull} and is equip with {ship.techspecs.shielding}.
+                    </p> }
                   </CardText>
                 </Card>
               </div>
@@ -159,7 +139,6 @@ class ShipShow extends Component {
               <div className="list-style-div">
                 <SpecsShips ship={ship} />
               </div>
-
               <div className="info-card-container">
                 <Card className="info-card-card">
                   <CardHeader
@@ -180,7 +159,6 @@ class ShipShow extends Component {
                     />
                 </Card>
               </div>
-
               <div className="button-style-div">
                 <RaisedButton
                   buttonStyle={purchaseButton}
@@ -189,7 +167,6 @@ class ShipShow extends Component {
                   primary={true}  />
               </div>
             </div>
-
           </div>
       </div>
     )
