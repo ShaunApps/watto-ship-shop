@@ -12,25 +12,8 @@ import Subheader from 'material-ui/Subheader';
 
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-import image1 from '.././images/tie_fighter.png';
-import image2 from '.././images/X-wing.png';
-import image3 from '.././images/Y-Wing.png';
-import image4 from '.././images/YT-1300_Light_Freighter.png';
-import image5 from '.././images/starwing.png';
-import image6 from '.././images/Imperial_Shuttle.png';
-import image7 from '.././images/A-wing.png';
-import image8 from '.././images/B-Wing-icon.png';
-
-export const IMAGE_MAP = [
-  image1,
-  image2,
-  image3,
-  image4,
-  image5,
-  image6,
-  image7,
-  image8
-];
+import {IMAGE_MAP} from '.././utils/image_helper';
+const IMAGES = IMAGE_MAP.images;
 
 
 const styles = {
@@ -56,7 +39,7 @@ class ShipList extends Component {
 
   renderProducts() {
     return this.props.products.map((product) => {
-      let image = IMAGE_MAP[product.id - 1];
+      let image = IMAGES[product.id - 1];
       return (
         <Col md={6} xs={12} sm={6} lg={4}>
            <ShipCards id={product.id} name={product.name} manufacturer={product.manufacturer} price={product.price} image={image} />

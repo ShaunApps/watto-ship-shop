@@ -75,10 +75,6 @@ class App extends Component {
           <AppBar title="Watto's Spaceship Emporium"
                   style={AppStyle.appBar}
                   titleStyle={AppStyle.titleBar}
-                  iconElementRight={<Toggle
-                                      labelPosition="right"
-                                      onToggle={this.handleToggle}
-                                    />}
                   iconElementLeft={<IconButton
                                     iconStyle={AppStyle.homeIcon}
                                     style={AppStyle.homeStyle}
