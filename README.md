@@ -12,6 +12,8 @@ Instructions to run:
 
 `npm start`
 
+Open http://localhost:3000 to view it in the browser if it doesn't open automatically.
+
 
 
 This project utilized the following technologies to create:
